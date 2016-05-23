@@ -2,7 +2,7 @@
 
 class Thread {
 public:
-	int current_thread;
+        int current_thread;
 
 #ifdef __linux__
 	pthread_t *thread = new pthread_t();

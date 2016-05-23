@@ -1,5 +1,5 @@
 #include "libraries.h"
-#include "myclass.h"
+#include  "myclass.h"
 
 int catch_input()
 {
