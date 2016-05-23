@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>518</width>
+    <height>397</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>10</y>
+     <width>311</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Site name</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="mSiteName"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="mConnect">
+      <property name="text">
+       <string>Connect</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>60</y>
+     <width>311</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Host adress</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="mHostAddress"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="mCancle">
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_4">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>150</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_9">
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Login:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="mUser"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QCheckBox" name="mPasv">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>110</y>
+     <width>156</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Passive mode（PASV）</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="tristate">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>100</y>
+     <width>30</width>
+     <height>39</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Port</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="mPort">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>110</y>
+     <width>71</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>21</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="mCheck">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>160</y>
+     <width>60</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Anonim</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_5">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>200</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_11">
+    <item>
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Password:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="mPassword">
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_6">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>250</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_12">
+    <item>
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Distal directory</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="mRemoteDir"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_7">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>290</y>
+     <width>321</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_13">
+    <item>
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Local directory</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="mLocalDir"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="mBrowse">
+      <property name="text">
+       <string>Browse</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>340</y>
+     <width>321</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_8">
+    <item>
+     <widget class="QPushButton" name="mAdd">
+      <property name="text">
+       <string>Add to</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="mSave">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="mDelete">
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QListWidget" name="mListWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>171</width>
+     <height>371</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
