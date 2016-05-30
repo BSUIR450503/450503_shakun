@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <string>
+#include <QString>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ public:
     ~Form();
     void showServerMessage(char* message);
     void showClientMessage(const char *message);
-    void showListOfFile(const char *listOfFile);
+    void showListOfFile(QString s);
 
 private:
     Ui::Form *ui;

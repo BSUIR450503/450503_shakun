@@ -19,10 +19,9 @@ void Form::showClientMessage(const char *message)
     emit sendMessageSignal("Client: " + QString::fromStdString(s).trimmed());
 }
 
-void Form::showListOfFile(const char *listOfFile)
+void Form::showListOfFile(QString s)
 {
-    string s(listOfFile);
-    emit sendListOfFile(QString::fromStdString(s));
+    emit sendListOfFile(s);
 }
 
 void Form::showServerMessage(char *message)

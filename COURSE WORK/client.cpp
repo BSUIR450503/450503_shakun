@@ -224,10 +224,10 @@ int Client::uploadFileToServer(char *nameOfFile, char* pathToFile)
 int Client::loginToServer()
 {
     sprintf(this->bufferForMessage, "USER %s\r\n", this->username.c_str());
-    this->sendMessageToServer(this->bufferForMessage);\
+    this->sendMessageToServer(this->bufferForMessage);
     this->receivingMessageFromServer();
     sprintf(this->bufferForMessage, "PASS %s\r\n", this->password.c_str());
-    this->sendMessageToServer(this->bufferForMessage);\
+    this->sendMessageToServer(this->bufferForMessage);
     this->receivingMessageFromServer();
     if (this->bufferForMessage[0] == '5')
         return -1;
@@ -349,24 +349,21 @@ int Client::getListOfFiles()
 
     memset(this->bufferForMessage, 0, sizeof(this->bufferForMessage));
     int no_of_bytes = 0;
+    QString m;
 
-  //  char *text = new char[2000 + 1];
-  //  text[0] = '\0';
-
-    while ((no_of_bytes =  recv(this->dataSocket, this->bufferForMessage, 2000, 0)) > 0)	{
-
-                if (no_of_bytes == -1) {
-                    cout <<  "Connection lost..." << endl;
-                }
-
-            //    text[no_of_bytes] = '\0';
-           //     cout << text;
-                this->form->showListOfFile(this->bufferForMessage);
+    while ((no_of_bytes =  recv(this->dataSocket, this->bufferForMessage, 2000, 0)) > 0)
+    {
+               m += m.asprintf(this->bufferForMessage);
                 fflush(stdout);
-            }
+    }
+    if (no_of_bytes == -1)
+    {
+        cout <<  "Connection lost..." << endl;
+        return 0;
+    }
 
-
-     closesocket(this->dataSocket);
+    this->form->showListOfFile(m);
+    closesocket(this->dataSocket);
     return 0;
 }
 

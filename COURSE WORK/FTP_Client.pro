@@ -42,16 +42,5 @@ FORMS    += mainwindow.ui\
     dialogdonwloadfile.ui \
     dialoguploadfile.ui
 RESOURCES += ftp.qrc
-OTHER_FILES += images/star.png \
-    images/question.png \
-    images/outbox.png \
-    images/inbox.png \
-    images/gear.png \
-    images/button-synchronize.png \
-    images/button-shuffle.png \
-    images/button-play.png \
-    images/button-pause.png \
-    images/button-cross.png \
-    images/web.png \
-    images/folder.png
+
 
