@@ -20,7 +20,7 @@ private:
 
     bool connectStatus;
 
-    char bufferForMessage[2000];
+    char bufferForMessage[1000];
 
     SOCKET messagingSocket;
     SOCKET dataSocket;

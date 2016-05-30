@@ -64,7 +64,6 @@ int Client::deleteFile(char *nameOfFile)
     memset(this->bufferForMessage, 0, sizeof(this->bufferForMessage));
     sprintf(this->bufferForMessage, "DELE %s\r\n", nameOfFile);
     this->sendMessageToServer(this->bufferForMessage);
-
     memset(this->bufferForMessage, 0, sizeof(this->bufferForMessage));
     recv(this->messagingSocket, this->bufferForMessage, 1000, 0);
     if (this->bufferForMessage[0] == '5')
@@ -72,7 +71,6 @@ int Client::deleteFile(char *nameOfFile)
         this->form->showServerMessage(this->bufferForMessage);
         return -1;
     }
-
     this->form->showServerMessage(this->bufferForMessage);
     recv(this->messagingSocket, this->bufferForMessage, 1000, 0);
     this->getListOfFiles();
@@ -167,18 +165,16 @@ int Client::uploadFileToServer(char *nameOfFile, char* pathToFile)
 {
     recv(this->messagingSocket, this->bufferForMessage, 1000, 0);
     this->initializeDataSocket();
-    char request[1000];
+    memset(this->bufferForMessage, 0, sizeof(this->bufferForMessage));
     cout << "input sohr" << endl;
-    sprintf(request, "STOR %s\r\n", nameOfFile);
-    this->sendMessageToServer(request);
+    sprintf(this->bufferForMessage, "STOR %s\r\n", nameOfFile);
+    this->sendMessageToServer(this->bufferForMessage);
 
-    char buff[1000];
-    for (int i = 0; i<1000; i++)
-        buff[i] = '\0';
-    recv(this->messagingSocket, buff, 1000, 0);
-    if (buff[0] == '5')
+    memset(this->bufferForMessage, 0, sizeof(this->bufferForMessage));
+    recv(this->messagingSocket, this->bufferForMessage, 1000, 0);
+    if (this->bufferForMessage[0] == '5')
     {
-        cout << buff << endl;
+        cout << this->bufferForMessage << endl;
         return -1;
     }
     char fileN[1000];
@@ -186,6 +182,7 @@ int Client::uploadFileToServer(char *nameOfFile, char* pathToFile)
 
     FILE *file;
     file = fopen(fileN, "rb");
+    memset(fileN, 0 , sizeof(fileN));
     if (file == 0)
     {
         cout << "Файл не найден в папке " << pathToFile << endl;
@@ -201,9 +198,8 @@ int Client::uploadFileToServer(char *nameOfFile, char* pathToFile)
     {
         do
         {
-            char buff[1000];
-            fread(buff, sizeof(buff), 1, file);
-            reading = send(this->dataSocket, buff, sizeof(buff), 0);
+            fread(fileN, sizeof(fileN), 1, file);
+            reading = send(this->dataSocket, fileN, sizeof(fileN), 0);
             sizeFull += reading;
         } while (sizeFull < size - 1000);
     }
@@ -231,7 +227,6 @@ int Client::loginToServer()
     this->receivingMessageFromServer();
     if (this->bufferForMessage[0] == '5')
         return -1;
-
     this->getListOfFiles();
     return 0;
 }
@@ -351,9 +346,10 @@ int Client::getListOfFiles()
     int no_of_bytes = 0;
     QString m;
 
-    while ((no_of_bytes =  recv(this->dataSocket, this->bufferForMessage, 2000, 0)) > 0)
+    while ((no_of_bytes =  recv(this->dataSocket, this->bufferForMessage, 1, 0)) > 0)
     {
                m += m.asprintf(this->bufferForMessage);
+               cout <<this->bufferForMessage<<endl;
                 fflush(stdout);
     }
     if (no_of_bytes == -1)
